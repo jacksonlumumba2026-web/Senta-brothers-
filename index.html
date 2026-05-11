@@ -613,6 +613,91 @@ body{
   50%{box-shadow:0 4px 32px rgba(37,211,102,0.7);}
 }
 
+/* ======= SHAPES ======= */
+.shapes{padding:100px 0;background:var(--black2);}
+.shapes__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;margin-top:60px;
+}
+.shape-card{
+  background:transparent;
+  text-align:center;
+  transition:transform 0.3s;
+}
+.shape-card:hover{transform:translateY(-6px);}
+
+/* Image container clipped into shapes */
+.shape-img{
+  width:120px;height:160px;
+  margin:0 auto 16px;
+  overflow:hidden;
+  position:relative;
+  border:2px solid rgba(201,168,76,0.3);
+  transition:border-color 0.3s;
+}
+.shape-card:hover .shape-img{border-color:var(--gold);}
+.shape-img img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform 0.5s var(--ease);
+}
+.shape-card:hover .shape-img img{transform:scale(1.08);}
+
+/* Shape clip paths */
+.shape-oval{border-radius:50%;}
+.shape-arch{border-radius:60px 60px 0 0;}
+.shape-rect{border-radius:8px;}
+.shape-circle{border-radius:50%;width:120px;height:120px;}
+.shape-halfround{border-radius:60px 60px 0 0;height:80px;}
+.shape-teardrop{border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
+.shape-irregular{border-radius:30% 70% 60% 40% / 50% 40% 60% 50%;}
+.shape-wavy{border-radius:40% 60% 55% 45% / 45% 45% 55% 55%;}
+
+.shape-card__name{
+  font-family:var(--ff-display);
+  font-size:16px;font-weight:600;
+  color:var(--white);margin-bottom:10px;
+}
+.shape-card__order{
+  display:inline-block;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;
+  border-bottom:1px solid rgba(201,168,76,0.3);
+  padding-bottom:2px;
+  transition:border-color 0.2s;
+}
+.shape-card__order:hover{border-color:var(--gold);}
+
+/* More work grid */
+.shapes__more{margin-top:80px;}
+.shapes__more-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
+}
+.shape-more-item{
+  overflow:hidden;
+  border:1px solid rgba(201,168,76,0.2);
+  transition:border-color 0.3s,transform 0.3s;
+  cursor:pointer;
+}
+.shape-more-item:hover{border-color:var(--gold);transform:translateY(-4px);}
+.shape-more-item img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform 0.5s var(--ease);
+}
+.shape-more-item:hover img{transform:scale(1.08);}
+
+/* Small shape variants */
+.shape-oval-sm{border-radius:50%;width:100%;aspect-ratio:3/4;}
+.shape-arch-sm{border-radius:40px 40px 0 0;aspect-ratio:3/4;}
+.shape-rect-sm{border-radius:6px;aspect-ratio:3/4;}
+.shape-circle-sm{border-radius:50%;aspect-ratio:1;}
+.shape-teardrop-sm{border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;aspect-ratio:3/4;}
+.shape-irregular-sm{border-radius:30% 70% 60% 40% / 50% 40% 60% 50%;aspect-ratio:3/4;}
+
 /* ======= LIGHTBOX ======= */
 .lightbox{
   position:fixed;inset:0;background:rgba(0,0,0,0.95);
@@ -650,6 +735,7 @@ body{
   .about__inner{grid-template-columns:1fr;gap:40px;}
   .about__img{order:-1;}
   .services__header{flex-direction:column;align-items:flex-start;gap:16px;}
+  .shapes__grid{grid-template-columns:repeat(2,1fr);}
   .services__grid{grid-template-columns:repeat(2,1fr);}
   .pricing__grid{grid-template-columns:1fr;}
   .gallery__grid{grid-template-columns:repeat(2,1fr);}
@@ -682,6 +768,7 @@ body{
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About Us</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#shapes">Shapes</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact" class="nav__cta">Get a Quote</a></li>
@@ -714,7 +801,7 @@ body{
     </div>
   </div>
   <div class="hero__right placeholder">
-    <img src="IMG-01.jpg" alt="Senta Brothers Premium Mirror" onerror="this.style.display='none'"/>
+    <img src="IMG01.jpg" alt="Senta Brothers Premium Mirror" onerror="this.style.display='none'"/>
   </div>
 </section>
 
@@ -775,7 +862,7 @@ body{
   <div class="container">
     <div class="about__inner">
       <div class="about__img placeholder reveal">
-        <img src="IMG-02.jpg" alt="Senta Brothers workshop" onerror="this.style.display='none'"/>
+        <img src="IMG02.jpg" alt="Senta Brothers workshop" onerror="this.style.display='none'"/>
       </div>
       <div class="about__text reveal">
         <span class="section-tag">About Us</span>
@@ -815,7 +902,7 @@ body{
     <div class="services__grid">
       <div class="service-card reveal">
         <div class="service-card__img placeholder">
-          <img src="IMG-03.jpg" alt="Wall Mirrors" onerror="this.style.display='none'"/>
+          <img src="IMG03.jpg" alt="Wall Mirrors" onerror="this.style.display='none'"/>
         </div>
         <div class="service-card__body">
           <span class="service-card__icon">🪞</span>
@@ -826,7 +913,7 @@ body{
       </div>
       <div class="service-card reveal">
         <div class="service-card__img placeholder">
-          <img src="IMG-04.jpg" alt="LED Mirrors" onerror="this.style.display='none'"/>
+          <img src="IMG04.jpg" alt="LED Mirrors" onerror="this.style.display='none'"/>
         </div>
         <div class="service-card__body">
           <span class="service-card__icon">💡</span>
@@ -837,7 +924,7 @@ body{
       </div>
       <div class="service-card reveal">
         <div class="service-card__img placeholder">
-          <img src="IMG-05.jpg" alt="Custom Designs" onerror="this.style.display='none'"/>
+          <img src="IMG05.jpg" alt="Custom Designs" onerror="this.style.display='none'"/>
         </div>
         <div class="service-card__body">
           <span class="service-card__icon">✦</span>
@@ -848,7 +935,7 @@ body{
       </div>
       <div class="service-card reveal">
         <div class="service-card__img placeholder">
-          <img src="IMG-06.jpg" alt="Glass Solutions" onerror="this.style.display='none'"/>
+          <img src="IMG06.jpg" alt="Glass Solutions" onerror="this.style.display='none'"/>
         </div>
         <div class="service-card__body">
           <span class="service-card__icon">🔷</span>
@@ -859,7 +946,7 @@ body{
       </div>
       <div class="service-card reveal">
         <div class="service-card__img placeholder">
-          <img src="IMG-07.jpg" alt="Installation" onerror="this.style.display='none'"/>
+          <img src="IMG07.jpg" alt="Installation" onerror="this.style.display='none'"/>
         </div>
         <div class="service-card__body">
           <span class="service-card__icon">🔧</span>
@@ -920,7 +1007,157 @@ body{
       </div>
     </div>
     <div class="reveal" style="text-align:center;margin-top:32px;">
-      <p style="font-size:13px;color:var(--muted);">Need a custom size? <a href="https://wa.me/254700000000?text=Hi! I need a custom size mirror. Can you help?" style="color:var(--gold);text-decoration:none;" target="_blank">Contact us for a quote →</a></p>
+      <p style="font-size:13px;color:var(--muted);">Need a custom size? <a href="https://wa.me/254722960355?text=Hi! I need a custom size mirror. Can you help?" style="color:var(--gold);text-decoration:none;" target="_blank">Contact us for a quote →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- MIRROR SHAPES -->
+<section class="shapes" id="shapes">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:16px;">
+      <span class="section-tag" style="display:block;">Mirror Shapes</span>
+      <h2 class="section-title">Timeless Elegance With<br/><em>Custom Design Shapes</em></h2>
+      <p style="font-size:14px;color:var(--muted);margin-top:12px;">Every mirror shape available — tap any to order</p>
+    </div>
+    <div class="shapes__grid reveal">
+
+      <div class="shape-card">
+        <div class="shape-img shape-oval">
+          <img src="S01.jpg" alt="Oval Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Oval</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like an Oval mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-arch">
+          <img src="S02.jpg" alt="Arched Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Arched</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like an Arched mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-rect">
+          <img src="S03.jpg" alt="Rectangular Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Rectangular</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a Rectangular mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-circle">
+          <img src="S04.jpg" alt="Circle Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Circle</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a Circle mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-halfround">
+          <img src="S05.jpg" alt="Half Round Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Half Round</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a Half Round mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-teardrop">
+          <img src="S06.jpg" alt="Teardrop Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Teardrop</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a Teardrop mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-irregular">
+          <img src="S07.jpg" alt="Irregular Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Irregular</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like an Irregular mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-img shape-wavy">
+          <img src="S08.jpg" alt="Wavy Mirror" onerror="this.style.display='none'"/>
+        </div>
+        <div class="shape-card__name">Wavy Frame</div>
+        <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a Wavy Frame mirror." class="shape-card__order" target="_blank">Order →</a>
+      </div>
+
+    </div>
+
+    <!-- Extra photos gallery below shapes -->
+    <div class="shapes__more reveal">
+      <h3 style="font-family:var(--ff-display);font-size:24px;color:var(--white);margin-bottom:32px;text-align:center;">More Of Our <em style="color:var(--gold);">Work</em></h3>
+      <div class="shapes__more-grid">
+        <div class="shape-more-item shape-oval-sm"><img src="S09.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-arch-sm"><img src="S10.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-rect-sm"><img src="S11.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-circle-sm"><img src="S12.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-teardrop-sm"><img src="S13.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-oval-sm"><img src="S14.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-irregular-sm"><img src="S15.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-arch-sm"><img src="S16.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-rect-sm"><img src="S17.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-circle-sm"><img src="S18.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-teardrop-sm"><img src="S19.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-oval-sm"><img src="S20.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-arch-sm"><img src="S21.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-rect-sm"><img src="S22.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="shape-more-item shape-irregular-sm"><img src="S23.jpg" alt="" onerror="this.style.display='none'"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVY MIRROR PRICING -->
+<section style="padding:80px 0;background:var(--black);">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <span class="section-tag" style="display:block;">Wavy Frame Mirrors</span>
+      <h2 class="section-title">Premium <em>Wavy Frames</em></h2>
+      <p style="font-size:14px;color:var(--muted);margin-top:12px;">Luxury wavy frame mirrors — a statement piece for any room</p>
+    </div>
+    <div class="pricing__grid reveal">
+      <div class="price-card">
+        <div class="price-card__size">2 × 6 ft</div>
+        <div class="price-card__price">KSh 10,500</div>
+        <span class="price-card__from">Fixed Price</span>
+        <ul class="price-card__features">
+          <li>Wavy decorative frame</li>
+          <li>Black or white frame</li>
+          <li>High quality mirror glass</li>
+          <li>Installation available</li>
+        </ul>
+        <a href="https://wa.me/254722960355?text=Hi! I'm interested in a 2x6ft Wavy Frame mirror (KSh 10,500)." class="btn btn--outline-gold" target="_blank" style="width:100%;justify-content:center;">Order Now</a>
+      </div>
+      <div class="price-card price-card--featured">
+        <div class="price-badge">Popular</div>
+        <div class="price-card__size">2.5 × 6 ft</div>
+        <div class="price-card__price">KSh 12,500</div>
+        <span class="price-card__from">Fixed Price</span>
+        <ul class="price-card__features">
+          <li>Wavy decorative frame</li>
+          <li>Black or white frame</li>
+          <li>High quality mirror glass</li>
+          <li>Installation available</li>
+        </ul>
+        <a href="https://wa.me/254722960355?text=Hi! I'm interested in a 2.5x6ft Wavy Frame mirror (KSh 12,500)." class="btn btn--gold" target="_blank" style="width:100%;justify-content:center;">Order Now</a>
+      </div>
+      <div class="price-card">
+        <div class="price-card__size">3 × 6 ft</div>
+        <div class="price-card__price">KSh 15,000</div>
+        <span class="price-card__from">Fixed Price</span>
+        <ul class="price-card__features">
+          <li>Wavy decorative frame</li>
+          <li>Black or white frame</li>
+          <li>High quality mirror glass</li>
+          <li>Installation available</li>
+        </ul>
+        <a href="https://wa.me/254722960355?text=Hi! I'm interested in a 3x6ft Wavy Frame mirror (KSh 15,000)." class="btn btn--outline-gold" target="_blank" style="width:100%;justify-content:center;">Order Now</a>
+      </div>
     </div>
   </div>
 </section>
@@ -936,31 +1173,31 @@ body{
   <div class="container">
     <div class="gallery__grid">
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-08.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG08.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-09.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG09.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-10.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG10.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-11.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG11.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-12.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG12.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-13.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG13.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
       <div class="gallery__item placeholder reveal">
-        <img src="IMG-14.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
+        <img src="IMG14.jpg" alt="Senta Brothers work" onerror="this.parentElement.classList.add('placeholder')"/>
         <div class="gallery__overlay"><span>View</span></div>
       </div>
     </div>
@@ -981,10 +1218,10 @@ body{
     </div>
   </div>
   <div class="cta__img-grid">
-    <div class="cta__img-item placeholder"><img src="IMG-15.jpg" alt="" onerror="this.style.display='none'"/></div>
-    <div class="cta__img-item placeholder"><img src="IMG-16.jpg" alt="" onerror="this.style.display='none'"/></div>
-    <div class="cta__img-item placeholder"><img src="IMG-17.jpg" alt="" onerror="this.style.display='none'"/></div>
-    <div class="cta__img-item placeholder"><img src="IMG-18.jpg" alt="" onerror="this.style.display='none'"/></div>
+    <div class="cta__img-item placeholder"><img src="IMG15.jpg" alt="" onerror="this.style.display='none'"/></div>
+    <div class="cta__img-item placeholder"><img src="IMG16.jpg" alt="" onerror="this.style.display='none'"/></div>
+    <div class="cta__img-item placeholder"><img src="IMG17.jpg" alt="" onerror="this.style.display='none'"/></div>
+    <div class="cta__img-item placeholder"><img src="IMG18.jpg" alt="" onerror="this.style.display='none'"/></div>
   </div>
 </div>
 
@@ -1008,7 +1245,7 @@ body{
           <div class="contact__info-icon">📞</div>
           <div>
             <span class="contact__info-label">Phone / WhatsApp</span>
-            <div class="contact__info-value"><a href="tel:+254700000000">+254 700 000 000</a></div>
+            <div class="contact__info-value"><a href="tel:+254722960355">+254 700 000 000</a></div>
           </div>
         </div>
         <div class="contact__info-item">
@@ -1074,10 +1311,10 @@ body{
         <a href="https://wa.me/254722960355" class="social-btn" target="_blank">wa</a>
       </div>
       <div class="footer__gallery">
-        <div class="footer__thumb placeholder"><img src="IMG-19.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="footer__thumb placeholder"><img src="IMG-20.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="footer__thumb placeholder"><img src="IMG-21.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="footer__thumb placeholder"><img src="IMG-22.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="footer__thumb placeholder"><img src="IMG19.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="footer__thumb placeholder"><img src="IMG20.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="footer__thumb placeholder"><img src="IMG21.jpg" alt="" onerror="this.style.display='none'"/></div>
+        <div class="footer__thumb placeholder"><img src="IMG22.jpg" alt="" onerror="this.style.display='none'"/></div>
       </div>
     </div>
     <div class="footer__col">
