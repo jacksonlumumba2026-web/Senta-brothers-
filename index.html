@@ -698,6 +698,54 @@ body{
 .shape-teardrop-sm{border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;aspect-ratio:3/4;}
 .shape-irregular-sm{border-radius:30% 70% 60% 40% / 50% 40% 60% 50%;aspect-ratio:3/4;}
 
+/* More work big cards - 3 per row */
+.more-work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.more-work-card{
+  background:var(--black3);
+  border:1px solid rgba(201,168,76,0.1);
+  overflow:hidden;
+  transition:transform 0.3s,border-color 0.3s;
+}
+.more-work-card:hover{transform:translateY(-5px);border-color:rgba(201,168,76,0.35);}
+.more-work-img{
+  width:100%;
+  overflow:hidden;
+  border:none;
+  margin:0 auto;
+  display:block;
+}
+.more-work-img img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform 0.5s var(--ease);
+  aspect-ratio:3/4;
+}
+.more-work-card:hover .more-work-img img{transform:scale(1.06);}
+.more-work-body{padding:16px 18px 18px;}
+.more-work-name{
+  font-family:var(--ff-display);
+  font-size:17px;font-weight:600;
+  color:var(--white);margin-bottom:12px;
+}
+.more-work-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.more-work-price{
+  font-family:var(--ff-display);
+  font-size:17px;font-weight:700;color:var(--gold);
+}
+.more-work-order{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;
+  border:1px solid rgba(201,168,76,0.3);
+  padding:7px 14px;
+  transition:background 0.2s,color 0.2s;
+  white-space:nowrap;
+}
+.more-work-order:hover{background:var(--gold);color:var(--black);}
+
 /* ======= LIGHTBOX ======= */
 .lightbox{
   position:fixed;inset:0;background:rgba(0,0,0,0.95);
@@ -735,6 +783,7 @@ body{
   .about__inner{grid-template-columns:1fr;gap:40px;}
   .about__img{order:-1;}
   .services__header{flex-direction:column;align-items:flex-start;gap:16px;}
+  .more-work-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
   .shapes__grid{grid-template-columns:repeat(2,1fr);gap:20px;}
   .shape-img{width:100%;height:auto;aspect-ratio:3/4;}
   .shape-circle{width:100%;aspect-ratio:1;}
@@ -769,6 +818,7 @@ body{
   </div>
   <ul class="nav__links">
     <li><a href="#home">Home</a></li>
+    <li><a href="senta-shop.html">Shop</a></li>
     <li><a href="#about">About Us</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#shapes">Shapes</a></li>
@@ -1136,25 +1186,273 @@ body{
 
     </div>
 
-    <!-- Extra photos gallery below shapes -->
+    <!-- More of Our Work - Big 3 per row with prices -->
     <div class="shapes__more reveal">
-      <h3 style="font-family:var(--ff-display);font-size:24px;color:var(--white);margin-bottom:32px;text-align:center;">More Of Our <em style="color:var(--gold);">Work</em></h3>
-      <div class="shapes__more-grid">
-        <div class="shape-more-item shape-oval-sm"><img src="S09.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-arch-sm"><img src="S10.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-rect-sm"><img src="S11.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-circle-sm"><img src="S12.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-teardrop-sm"><img src="S13.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-oval-sm"><img src="S14.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-irregular-sm"><img src="S15.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-arch-sm"><img src="S16.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-rect-sm"><img src="S17.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-circle-sm"><img src="S18.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-teardrop-sm"><img src="S19.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-oval-sm"><img src="S20.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-arch-sm"><img src="S21.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-rect-sm"><img src="S22.jpg" alt="" onerror="this.style.display='none'"/></div>
-        <div class="shape-more-item shape-irregular-sm"><img src="S23.jpg" alt="" onerror="this.style.display='none'"/></div>
+      <h3 style="font-family:var(--ff-display);font-size:clamp(28px,5vw,44px);font-weight:400;color:var(--white);margin-bottom:8px;text-align:center;">More Of Our <em style="color:var(--gold);font-style:italic;">Work</em></h3>
+      <p style="text-align:center;font-size:13px;color:var(--muted);margin-bottom:48px;">Every piece handcrafted at Senta Brothers, Kasarani</p>
+      <div class="more-work-grid">
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-arch-sm">
+            <img src="S09.jpg" alt="Arch Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Arch Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 6,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Arch mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-oval-sm">
+            <img src="S10.jpg" alt="Oval Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Oval Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 6,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Oval mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-rect-sm">
+            <img src="S11.jpg" alt="Rectangular Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Rectangular Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 6,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Rectangular mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-circle-sm">
+            <img src="S12.jpg" alt="Circle Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Circle Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Circle mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-teardrop-sm">
+            <img src="S13.jpg" alt="Teardrop Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Teardrop Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Teardrop mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-irregular-sm">
+            <img src="S14.jpg" alt="Irregular Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Irregular Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Irregular mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-arch-sm">
+            <img src="S15.jpg" alt="Arch Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Arch Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 7,900+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Arch mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-wavy">
+            <img src="S16.jpg" alt="Wavy Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Wavy Frame Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 10,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Wavy Frame mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-oval-sm">
+            <img src="S17.jpg" alt="Oval Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Oval Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 7,900+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Oval mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-arch-sm">
+            <img src="S18.jpg" alt="Arch Display" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Arch Mirror Display</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 6,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Arch mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-rect-sm">
+            <img src="S19.jpg" alt="Rectangular Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Rectangular Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 7,900+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Rectangular mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-teardrop-sm">
+            <img src="S20.jpg" alt="Teardrop Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Teardrop Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Teardrop mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-irregular-sm">
+            <img src="S21.jpg" alt="Custom Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Custom Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I need a custom mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-arch-sm">
+            <img src="S22.jpg" alt="Arch Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Arch Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 10,000+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Arch mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-oval-sm">
+            <img src="S23.jpg" alt="Oval Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Oval Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 10,000+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in an Oval mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW PHOTOS S24-S28 -->
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-rect-sm" style="border-radius:6px;">
+            <img src="S24.jpg" alt="Senta Brothers Shop" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Our Shop — Arch Mirrors Display</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 6,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in Arch mirrors." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-rect-sm" style="border-radius:6px;">
+            <img src="S25.jpg" alt="Senta Brothers Shop" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Our Shop — Mirror Collection</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Various Sizes</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'd like to visit your shop." class="more-work-order" target="_blank">Visit →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-rect-sm" style="border-radius:6px;">
+            <img src="S26.jpg" alt="Senta Brothers Shop" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Arch & Oval Mirrors</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">KSh 6,500+</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in your mirrors." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-teardrop-sm">
+            <img src="S27.jpg" alt="Teardrop Mirror" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Teardrop Mirror</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Teardrop mirror." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-work-card reveal">
+          <div class="more-work-img shape-arch-sm">
+            <img src="S28.jpg" alt="Dressing Mirror with Cabinet" onerror="this.style.opacity='0'"/>
+          </div>
+          <div class="more-work-body">
+            <div class="more-work-name">Dressing Mirror + Cabinet</div>
+            <div class="more-work-footer">
+              <span class="more-work-price">Custom Quote</span>
+              <a href="https://wa.me/254722960355?text=Hi! I'm interested in a Dressing Mirror with Cabinet." class="more-work-order" target="_blank">Order →</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
