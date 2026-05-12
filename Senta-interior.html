@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Senta Brothers | Interior Design & Painting Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --black:#0A0A0A;--black2:#111111;--black3:#1A1A1A;
+  --gold:#C9A84C;--gold2:#E2C06A;--white:#FAFAF8;--muted:#888880;
+  --ff-display:'Cormorant Garamond',Georgia,serif;
+  --ff-body:'Outfit',sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+}
+body{background:var(--black);color:var(--white);font-family:var(--ff-body);font-weight:300;overflow-x:hidden;}
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.97);backdrop-filter:blur(16px);padding:18px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.1);}
+.nav__logo{display:flex;flex-direction:column;line-height:1;}
+.nav__logo-top{font-family:var(--ff-display);font-size:18px;font-weight:700;color:var(--gold);letter-spacing:3px;}
+.nav__logo-bottom{font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.nav__back{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav__back:hover{color:var(--gold);}
+.hero{padding:80px 40px 60px;text-align:center;background:var(--black2);position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.1);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(201,168,76,0.12) 0%,transparent 60%);}
+.hero__tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;position:relative;}
+.hero h1{font-family:var(--ff-display);font-size:clamp(32px,7vw,60px);font-weight:400;color:var(--white);position:relative;margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:14px;color:var(--muted);position:relative;max-width:500px;margin:0 auto;}
+.stats{display:flex;justify-content:center;gap:60px;padding:40px;background:var(--black3);border-bottom:1px solid rgba(201,168,76,0.08);}
+.stat__num{display:block;font-family:var(--ff-display);font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.stat__label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+.filter-bar{padding:20px 40px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;border-bottom:1px solid rgba(201,168,76,0.08);background:var(--black2);}
+.filter-btn{font-family:var(--ff-body);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border:1px solid rgba(201,168,76,0.2);background:none;color:var(--muted);cursor:pointer;transition:all 0.2s;}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.05);}
+.filter-count{margin-left:auto;font-size:12px;color:var(--muted);}
+.section-label{padding:48px 40px 24px;display:flex;align-items:center;gap:20px;}
+.section-label h2{font-family:var(--ff-display);font-size:clamp(20px,4vw,32px);font-weight:400;color:var(--white);white-space:nowrap;}
+.section-label h2 em{font-style:italic;color:var(--gold);}
+.section-label__line{flex:1;height:1px;background:rgba(201,168,76,0.15);}
+.gallery{padding:0 40px 40px;}
+.gallery__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1300px;margin:0 auto;}
+.gcard{position:relative;overflow:hidden;background:var(--black3);cursor:pointer;transition:transform 0.3s var(--ease);}
+.gcard:hover{transform:scale(1.01);}
+.gcard--wide{grid-column:span 2;}
+.gcard__img{width:100%;height:280px;object-fit:cover;display:block;transition:transform 0.6s var(--ease),filter 0.3s;filter:brightness(0.8);}
+.gcard--wide .gcard__img{height:320px;}
+.gcard:hover .gcard__img{transform:scale(1.06);filter:brightness(1);}
+.gcard__label{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(10,10,10,0.92),transparent);}
+.gcard__label-text{font-family:var(--ff-display);font-size:16px;font-weight:600;color:var(--white);}
+.gcard__label-sub{font-size:11px;color:var(--gold);margin-top:3px;letter-spacing:0.5px;}
+.cta{background:var(--black2);padding:80px 40px;text-align:center;border-top:1px solid rgba(201,168,76,0.1);}
+.cta h2{font-family:var(--ff-display);font-size:clamp(28px,5vw,48px);font-weight:400;color:var(--white);margin-bottom:16px;}
+.cta h2 em{font-style:italic;color:var(--gold);}
+.cta p{font-size:14px;color:var(--muted);margin-bottom:32px;}
+.cta__btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--ff-body);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;transition:all 0.3s var(--ease);}
+.btn--gold{background:var(--gold);color:var(--black);border:1px solid var(--gold);}
+.btn--gold:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn--outline{border:1px solid rgba(201,168,76,0.4);color:var(--gold);}
+.btn--outline:hover{background:var(--gold);color:var(--black);transform:translateY(-2px);}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lightbox__img{max-width:92vw;max-height:92vh;object-fit:contain;}
+.lightbox__close{position:absolute;top:20px;right:28px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer;opacity:0.6;transition:opacity 0.2s;}
+.lightbox__close:hover{opacity:1;}
+.lightbox__prev,.lightbox__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:24px;padding:12px 18px;cursor:pointer;transition:background 0.2s;}
+.lightbox__prev{left:20px;}.lightbox__next{right:20px;}
+.lightbox__prev:hover,.lightbox__next:hover{background:rgba(201,168,76,0.35);}
+.lightbox__counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);letter-spacing:2px;}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:200;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;animation:waPulse 2.5s ease infinite;}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 32px rgba(37,211,102,0.7);}}
+footer{background:var(--black2);padding:40px;text-align:center;border-top:1px solid rgba(201,168,76,0.1);}
+footer strong{display:block;font-family:var(--ff-display);font-size:18px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:8px;}
+footer p{font-size:12px;color:rgba(250,250,248,0.3);}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s var(--ease),transform 0.6s var(--ease);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:700px){
+  .nav,.hero,.filter-bar,.section-label,.gallery,.cta{padding-left:16px;padding-right:16px;}
+  .gallery__grid{grid-template-columns:1fr 1fr;gap:3px;}
+  .gcard--wide{grid-column:span 2;}
+  .gcard__img,.gcard--wide .gcard__img{height:200px;}
+  .stats{gap:20px;padding:24px 16px;flex-wrap:wrap;}
+}
+@media(max-width:400px){
+  .gallery__grid{grid-template-columns:1fr;}
+  .gcard--wide{grid-column:span 1;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__logo">
+    <span class="nav__logo-top">SENTA</span>
+    <span class="nav__logo-bottom">Brothers Glass</span>
+  </div>
+  <a href="index.html" class="nav__back">← Back to Home</a>
+</nav>
+
+<div class="hero">
+  <span class="hero__tag">Interior Design · Painting · Finishing</span>
+  <h1>Our <em>Projects</em></h1>
+  <p>Residential homes, apartments and commercial buildings — painted and finished to perfection across Nairobi.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><span class="stat__num">18+</span><span class="stat__label">Projects Done</span></div>
+  <div class="stat"><span class="stat__num">100%</span><span class="stat__label">Quality Finish</span></div>
+  <div class="stat"><span class="stat__num">5+</span><span class="stat__label">Years Experience</span></div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterCards('all',this)">All Projects</button>
+  <button class="filter-btn" onclick="filterCards('apartment',this)">Apartments</button>
+  <button class="filter-btn" onclick="filterCards('house',this)">Houses</button>
+  <button class="filter-btn" onclick="filterCards('painting',this)">Painting</button>
+  <span class="filter-count" id="filterCount">18 projects</span>
+</div>
+
+<!-- APARTMENTS -->
+<div class="section-label">
+  <h2>Apartment <em>Projects</em></h2>
+  <div class="section-label__line"></div>
+</div>
+<section class="gallery">
+  <div class="gallery__grid">
+
+    <div class="gcard gcard--wide reveal" data-cat="apartment" onclick="openLightbox(0)">
+      <img class="gcard__img" src="SV01.jpg" alt="Multi-storey apartment" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Multi-Storey Apartment</div><div class="gcard__label-sub">Exterior Painting & Finishing</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="painting" onclick="openLightbox(1)">
+      <img class="gcard__img" src="SV02.jpg" alt="Apartment painting" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Apartment Block</div><div class="gcard__label-sub">Full Exterior Finish</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="apartment" onclick="openLightbox(2)">
+      <img class="gcard__img" src="SV03.jpg" alt="Orange building" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Orange & Brown Finish</div><div class="gcard__label-sub">Exterior Painting</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="apartment" onclick="openLightbox(3)">
+      <img class="gcard__img" src="SV04.jpg" alt="Grey apartment" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Grey & Brown Apartment</div><div class="gcard__label-sub">Exterior Design & Painting</div></div>
+    </div>
+    <div class="gcard gcard--wide reveal" data-cat="apartment" onclick="openLightbox(4)">
+      <img class="gcard__img" src="SV05.jpg" alt="Tall white building" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">High-Rise Building</div><div class="gcard__label-sub">Interior & Exterior Finish</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="painting" onclick="openLightbox(5)">
+      <img class="gcard__img" src="SV06.jpg" alt="Painting scaffolding" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Painting In Progress</div><div class="gcard__label-sub">Scaffolding & Painting</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="apartment" onclick="openLightbox(6)">
+      <img class="gcard__img" src="SV07.jpg" alt="Yellow black apartment" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Yellow & Black Apartment</div><div class="gcard__label-sub">Bold Exterior Colour Scheme</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="apartment" onclick="openLightbox(7)">
+      <img class="gcard__img" src="SV08.jpg" alt="Red apartment" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Red & Cream Apartment</div><div class="gcard__label-sub">Exterior Painting</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="apartment" onclick="openLightbox(8)">
+      <img class="gcard__img" src="SV09.jpg" alt="Grey modern apartment" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Modern Grey Apartment</div><div class="gcard__label-sub">Interior Design & Finishing</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOUSES -->
+<div class="section-label">
+  <h2>Residential <em>Houses</em></h2>
+  <div class="section-label__line"></div>
+</div>
+<section class="gallery" style="padding-bottom:80px;">
+  <div class="gallery__grid">
+
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(9)">
+      <img class="gcard__img" src="SV10.jpg" alt="House construction" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Residential Home</div><div class="gcard__label-sub">Construction & Finishing</div></div>
+    </div>
+    <div class="gcard gcard--wide reveal" data-cat="house" onclick="openLightbox(10)">
+      <img class="gcard__img" src="SV11.jpg" alt="Modern villa" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Modern Villa</div><div class="gcard__label-sub">Full Interior & Exterior Finish</div></div>
+    </div>
+    <div class="gcard gcard--wide reveal" data-cat="house" onclick="openLightbox(11)">
+      <img class="gcard__img" src="SV12.jpg" alt="Luxury house aerial" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Luxury Home — Aerial View</div><div class="gcard__label-sub">Complete Finish</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(12)">
+      <img class="gcard__img" src="SV13.jpg" alt="Grey house" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Modern House</div><div class="gcard__label-sub">Interior Design & Painting</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(13)">
+      <img class="gcard__img" src="SV14.jpg" alt="White black villa" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">White & Black Villa</div><div class="gcard__label-sub">Premium Exterior Finish</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(14)">
+      <img class="gcard__img" src="SV15.jpg" alt="Large mansion" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Executive Mansion</div><div class="gcard__label-sub">Full Interior & Exterior</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(15)">
+      <img class="gcard__img" src="SV16.jpg" alt="Modern home" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Modern Home</div><div class="gcard__label-sub">White & Stone Finish</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(16)">
+      <img class="gcard__img" src="SV17.jpg" alt="2 storey home" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">2-Storey Residence</div><div class="gcard__label-sub">Painting & Finishing</div></div>
+    </div>
+    <div class="gcard reveal" data-cat="house" onclick="openLightbox(17)">
+      <img class="gcard__img" src="SV18.jpg" alt="Colonial house" onerror="this.style.background='#1a1a1a'"/>
+      <div class="gcard__label"><div class="gcard__label-text">Colonial Style Home</div><div class="gcard__label-sub">Exterior Painting & Design</div></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Ready to Transform<br/>Your <em>Space?</em></h2>
+  <p>Contact us for interior design, painting and all finishing services across Nairobi.</p>
+  <div class="cta__btns">
+    <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I need interior design and painting services." class="btn btn--gold" target="_blank">WhatsApp Us</a>
+    <a href="index.html#contact" class="btn btn--outline">Get a Quote</a>
+  </div>
+</div>
+
+<footer>
+  <strong>SENTA Brothers Glass</strong>
+  <p>Kasarani Hunters · Next to Co-op Bank · Nairobi · 0722 960 355</p>
+</footer>
+
+<a href="https://wa.me/254722960355" class="wa-float" target="_blank">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox__prev" onclick="changeLightbox(-1)">‹</button>
+  <img class="lightbox__img" id="lightboxImg" src="" alt=""/>
+  <button class="lightbox__next" onclick="changeLightbox(1)">›</button>
+  <div class="lightbox__counter" id="lightboxCounter"></div>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((el,i)=>{if(el.isIntersecting)setTimeout(()=>el.target.classList.add('visible'),i*60);});},{threshold:0.05});
+reveals.forEach(el=>obs.observe(el));
+
+function filterCards(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards=document.querySelectorAll('.gcard');
+  let count=0;
+  cards.forEach(card=>{const show=cat==='all'||card.dataset.cat===cat;card.style.display=show?'':'none';if(show)count++;});
+  document.getElementById('filterCount').textContent=count+' projects';
+}
+
+const images=['SV01.jpg','SV02.jpg','SV03.jpg','SV04.jpg','SV05.jpg','SV06.jpg','SV07.jpg','SV08.jpg','SV09.jpg','SV10.jpg','SV11.jpg','SV12.jpg','SV13.jpg','SV14.jpg','SV15.jpg','SV16.jpg','SV17.jpg','SV18.jpg'];
+let current=0;
+function openLightbox(i){current=i;document.getElementById('lightboxImg').src=images[i];document.getElementById('lightboxCounter').textContent=(i+1)+' / '+images.length;document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function changeLightbox(dir){current=(current+dir+images.length)%images.length;document.getElementById('lightboxImg').src=images[current];document.getElementById('lightboxCounter').textContent=(current+1)+' / '+images.length;}
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')changeLightbox(-1);if(e.key==='ArrowRight')changeLightbox(1);});
+</script>
+</body>
+</html>
