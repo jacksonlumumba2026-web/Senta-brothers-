@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Senta Brothers Glass | Premium Mirrors & Interior Solutions · Nairobi</title>
+<meta name="description" content="Premium custom mirrors in Nairobi. Arch, oval, wavy, custom shapes. Interior design & painting. Kasarani Hunters. Call 0722 960 355."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --ink:#080806;--ink2:#0F0F0D;--ink3:#161612;
+  --gold:#C9A84C;--gold2:#E2C06A;--gold3:#F0D898;
+  --white:#FAFAF6;--muted:#7A7A72;--muted2:#4A4A44;
+  --ff-h:'Cormorant Garamond',Georgia,serif;
+  --ff-b:'Outfit',sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease2:cubic-bezier(0.16,1,0.3,1);
+}
+body{background:var(--ink);color:var(--white);font-family:var(--ff-b);font-weight:300;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:200;padding:24px 56px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s var(--ease);}
+.nav.scrolled{background:rgba(8,8,6,0.97);backdrop-filter:blur(20px);padding:16px 56px;border-bottom:1px solid rgba(201,168,76,0.08);}
+.nav__logo{display:flex;flex-direction:column;gap:2px;}
+.nav__logo-top{font-family:var(--ff-h);font-size:20px;font-weight:700;color:var(--gold);letter-spacing:4px;line-height:1;}
+.nav__logo-sub{font-size:8px;letter-spacing:6px;text-transform:uppercase;color:var(--muted);}
+.nav__links{list-style:none;display:flex;gap:36px;align-items:center;}
+.nav__links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,246,0.5);transition:color 0.2s;}
+.nav__links a:hover{color:var(--white);}
+.nav__links .ncta{background:var(--gold);color:var(--ink) !important;padding:10px 24px;font-weight:500;}
+.nav__links .ncta:hover{background:var(--gold2);}
+.nav__burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.nav__burger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all 0.3s;}
+.mmenu{position:fixed;inset:0;z-index:190;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity 0.4s;}
+.mmenu.open{opacity:1;pointer-events:all;}
+.mmenu a{font-family:var(--ff-h);font-size:clamp(28px,7vw,44px);font-style:italic;color:var(--white);transition:color 0.2s;}
+.mmenu a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hero__left{display:flex;flex-direction:column;justify-content:flex-end;padding:160px 56px 80px;position:relative;z-index:2;}
+.hero__eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.hero__eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+.hero__h1{font-family:var(--ff-h);font-size:clamp(52px,6vw,86px);font-weight:300;line-height:1;color:var(--white);}
+.hero__h1 em{font-style:italic;color:var(--gold);}
+.hero__sub{font-size:14px;line-height:1.9;color:rgba(250,250,246,0.45);max-width:380px;margin:24px 0 44px;}
+.hero__btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-b);font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;transition:all 0.3s var(--ease);cursor:pointer;border:none;}
+.bg{background:var(--gold);color:var(--ink);}
+.bg:hover{background:var(--gold2);transform:translateY(-2px);}
+.bgh{border:1px solid rgba(250,250,246,0.2);color:var(--white);}
+.bgh:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.bgg{border:1px solid rgba(201,168,76,0.4);color:var(--gold);}
+.bgg:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px);}
+.hero__right{position:relative;overflow:hidden;background:var(--ink2);}
+.hero__right img{width:100%;height:100%;object-fit:cover;filter:brightness(0.7);}
+.hero__right::before{content:'';position:absolute;left:0;inset-y:0;width:120px;background:linear-gradient(to right,var(--ink),transparent);z-index:1;}
+.hero__scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;}
+.hero__scroll span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(250,250,246,0.2);}
+.hero__scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2s ease infinite;}
+@keyframes sp{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* MARQUEE */
+.mq{background:var(--gold);padding:13px 0;overflow:hidden;}
+.mq__t{display:flex;gap:40px;width:max-content;animation:mqa 22s linear infinite;}
+.mq__t span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);white-space:nowrap;font-weight:500;}
+@keyframes mqa{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SECTION BASE */
+.sec{padding:120px 56px;}
+.sec-d{background:var(--ink2);}
+.sec-dd{background:var(--ink3);}
+.sl{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.sl::before{content:'';width:24px;height:1px;background:var(--gold);}
+.sh{font-family:var(--ff-h);font-size:clamp(36px,4vw,60px);font-weight:300;line-height:1.05;color:var(--white);}
+.sh em{font-style:italic;color:var(--gold);}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(32px);transition:opacity 0.9s var(--ease2),transform 0.9s var(--ease2);}
+.r.v{opacity:1;transform:none;}
+.r2{opacity:0;transform:translateX(-36px);transition:opacity 0.9s var(--ease2),transform 0.9s var(--ease2);}
+.r2.v{opacity:1;transform:none;}
+
+/* ABOUT */
+.about__g{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;}
+.about__iw{position:relative;}
+.about__i{aspect-ratio:3/4;overflow:hidden;}
+.about__i img{width:100%;height:100%;object-fit:cover;filter:brightness(0.85);}
+.about__i::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(201,168,76,0.15);pointer-events:none;z-index:-1;}
+.about__badge{position:absolute;bottom:-24px;right:-24px;width:96px;height:96px;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.about__badge-n{font-family:var(--ff-h);font-size:30px;font-weight:700;color:var(--ink);line-height:1;}
+.about__badge-l{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);}
+.about__stats{display:flex;gap:40px;padding:32px 0;border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);margin:36px 0;}
+.as-n{display:block;font-family:var(--ff-h);font-size:40px;font-weight:700;color:var(--gold);line-height:1;}
+.as-l{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+
+/* SERVICES */
+.svc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;}
+.svc{background:var(--ink3);padding:48px 36px;border:1px solid transparent;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease);}
+.svc:hover{border-color:rgba(201,168,76,0.12);transform:translateY(-6px);}
+.svc:hover::after{transform:scaleX(1);}
+.svc__n{font-family:var(--ff-h);font-size:48px;font-weight:300;color:rgba(201,168,76,0.1);line-height:1;margin-bottom:20px;}
+.svc__ic{font-size:28px;margin-bottom:16px;display:block;}
+.svc__name{font-family:var(--ff-h);font-size:24px;font-weight:600;color:var(--white);margin-bottom:12px;}
+.svc__desc{font-size:13px;line-height:1.9;color:var(--muted);}
+.svc__lnk{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:24px;transition:gap 0.2s;}
+.svc__lnk:hover{gap:14px;}
+
+/* CAROUSEL */
+.cs-sec{padding:120px 0;background:var(--ink);}
+.cs-sec.d{background:var(--ink2);}
+.cs-head{padding:0 56px;display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:64px;}
+.cs-btns{display:flex;gap:12px;}
+.cbtn{width:48px;height:48px;border:1px solid rgba(201,168,76,0.25);background:transparent;color:var(--gold);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.cbtn:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.cw{overflow:hidden;padding:0 56px;}
+.ct{display:flex;gap:24px;transition:transform 0.6s var(--ease2);will-change:transform;}
+.cdots,.pdots{display:flex;gap:8px;justify-content:center;margin-top:40px;}
+.cdot,.pdot{width:6px;height:6px;border-radius:50%;background:rgba(201,168,76,0.2);border:none;cursor:pointer;transition:all 0.2s;}
+.cdot.a,.pdot.a{background:var(--gold);width:20px;border-radius:3px;}
+
+/* SHAPE CARDS */
+.sc{flex:0 0 280px;min-width:280px;background:var(--ink2);border:1px solid rgba(201,168,76,0.06);padding:32px 24px 28px;text-align:center;transition:border-color 0.3s,transform 0.4s var(--ease);}
+.sc:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-8px);}
+.sc__f{width:160px;height:200px;margin:0 auto 24px;overflow:hidden;border:1.5px solid rgba(201,168,76,0.2);transition:border-color 0.3s,box-shadow 0.3s;}
+.sc:hover .sc__f{border-color:rgba(201,168,76,0.6);box-shadow:0 0 30px rgba(201,168,76,0.1);}
+.sc__f img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease);}
+.sc:hover .sc__f img{transform:scale(1.08);}
+/* Shape clips */
+.f-arch{border-radius:80px 80px 0 0;}
+.f-oval{border-radius:50%;}
+.f-rect{border-radius:8px;}
+.f-circle{border-radius:50%;width:160px;height:160px;}
+.f-wavy{border-radius:42% 58% 55% 45%/48% 48% 52% 52%;}
+.f-tear{border-radius:50% 50% 50% 50%/60% 60% 40% 40%;}
+.f-irr{border-radius:30% 70% 60% 40%/50% 40% 60% 50%;}
+.f-pent img{clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);width:160px;height:160px;}
+.f-star img{clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);width:160px;height:160px;}
+.f-diam img{clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);width:160px;height:160px;}
+.f-hex img{clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);width:160px;height:160px;}
+.sc__name{font-family:var(--ff-h);font-size:20px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.sc__price{font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:16px;}
+.sc__cta{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.25);padding:8px 20px;transition:all 0.2s;}
+.sc__cta:hover{background:var(--gold);color:var(--ink);}
+
+/* PRICE CARDS */
+.pc-w{overflow:hidden;padding:0 56px;}
+.pc-t{display:flex;gap:20px;transition:transform 0.6s var(--ease2);}
+.pc{flex:0 0 300px;min-width:300px;background:var(--ink3);border:1px solid rgba(201,168,76,0.08);padding:36px 28px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.4s var(--ease),box-shadow 0.4s;}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease);}
+.pc:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,0.4);}
+.pc:hover::before{transform:scaleX(1);}
+.pc-feat{background:linear-gradient(160deg,#1C1600 0%,#0A0A0A 100%);border-color:rgba(201,168,76,0.25);}
+.pc-feat::before{transform:scaleX(1);}
+.pc-badge{position:absolute;top:0;right:20px;background:var(--gold);color:var(--ink);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;font-weight:600;}
+.pc-type{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
+.pc-sz{font-family:var(--ff-h);font-size:26px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.pc-pr{font-family:var(--ff-h);font-size:42px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
+.pc-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:block;}
+.pc-list{list-style:none;margin-bottom:32px;}
+.pc-list li{font-size:13px;color:rgba(250,250,246,0.55);padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px;}
+.pc-list li::before{content:'✓';color:var(--gold);font-size:11px;flex-shrink:0;}
+
+/* GALLERY */
+.gal-g{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:6px;margin-top:64px;}
+.gi{position:relative;overflow:hidden;cursor:pointer;}
+.gi:nth-child(1){grid-column:span 5;grid-row:span 2;}
+.gi:nth-child(2){grid-column:span 4;grid-row:span 2;}
+.gi:nth-child(3){grid-column:span 3;grid-row:span 1;}
+.gi:nth-child(4){grid-column:span 3;grid-row:span 1;}
+.gi:nth-child(5){grid-column:span 4;grid-row:span 2;}
+.gi:nth-child(6){grid-column:span 3;grid-row:span 2;}
+.gi:nth-child(7){grid-column:span 5;grid-row:span 2;}
+.gi img{width:100%;height:100%;object-fit:cover;filter:brightness(0.72);transition:transform 0.8s var(--ease),filter 0.4s;}
+.gi:hover img{transform:scale(1.06);filter:brightness(0.95);}
+.gi__o{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,6,0.7) 0%,transparent 50%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:20px;}
+.gi:hover .gi__o{opacity:1;}
+.gi__o span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold3);}
+
+/* TESTIMONIALS */
+.testi-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px;}
+.tc{background:var(--ink3);padding:36px;border:1px solid rgba(201,168,76,0.06);position:relative;transition:border-color 0.3s,transform 0.3s;}
+.tc:hover{border-color:rgba(201,168,76,0.25);transform:translateY(-4px);}
+.tc-q{font-family:var(--ff-h);font-size:60px;color:rgba(201,168,76,0.15);line-height:0.8;margin-bottom:20px;}
+.tc-t{font-size:14px;line-height:1.9;color:rgba(250,250,246,0.6);margin-bottom:28px;}
+.tc-auth{display:flex;align-items:center;gap:14px;}
+.tc-av{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--ff-h);font-size:18px;font-weight:700;color:var(--ink);flex-shrink:0;}
+.tc-name{font-size:14px;font-weight:500;color:var(--white);}
+.tc-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+.tc-feat{border-color:rgba(201,168,76,0.2);background:linear-gradient(160deg,#141200,var(--ink3));}
+.tc-badge{position:absolute;top:-12px;left:24px;background:var(--gold);color:var(--ink);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;font-weight:600;}
+
+/* CONTACT */
+.ct-sec{display:grid;grid-template-columns:1fr 1fr;}
+.ct-map iframe{width:100%;height:500px;border:0;filter:grayscale(0.2) contrast(1.1) brightness(0.85);}
+.ct-info{background:var(--ink3);padding:80px 56px;display:flex;flex-direction:column;justify-content:center;}
+.ci{padding:24px 0;border-bottom:1px solid rgba(201,168,76,0.07);display:flex;gap:20px;align-items:flex-start;}
+.ci-ic{font-size:20px;flex-shrink:0;margin-top:2px;}
+.ci-lb{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block;}
+.ci-v{font-size:14px;color:var(--white);line-height:1.6;}
+.ci-v a{color:var(--white);transition:color 0.2s;}
+.ci-v a:hover{color:var(--gold);}
+
+/* FOOTER */
+.ft{background:var(--ink2);padding:80px 56px 40px;border-top:1px solid rgba(201,168,76,0.08);}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+.ft-ln{font-family:var(--ff-h);font-size:26px;font-weight:700;color:var(--gold);letter-spacing:3px;}
+.ft-ls{font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block;}
+.ft-desc{font-size:13px;line-height:1.9;color:var(--muted);margin-top:20px;max-width:260px;}
+.ft-soc{display:flex;gap:10px;margin-top:28px;}
+.fsoc{width:38px;height:38px;border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;font-weight:500;transition:all 0.2s;}
+.fsoc:hover{border-color:var(--gold);color:var(--gold);}
+.ft-col h4{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:12px;}
+.ft-col a{font-size:13px;color:var(--muted);transition:color 0.2s;}
+.ft-col a:hover{color:var(--white);}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(201,168,76,0.06);}
+.ft-bot p{font-size:11px;color:var(--muted2);}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:500;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.35);animation:wap 3s ease infinite;transition:transform 0.2s;}
+.wa-float:hover{transform:scale(1.08);}
+@keyframes wap{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.35);}50%{box-shadow:0 4px 36px rgba(37,211,102,0.6);}}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:600;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.lb.open{opacity:1;pointer-events:all;}
+.lb img{max-width:90vw;max-height:88vh;object-fit:contain;}
+.lb-x{position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;opacity:0.5;transition:opacity 0.2s;}
+.lb-x:hover{opacity:1;}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:22px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;}
+.lb-nav:hover{background:var(--gold);color:var(--ink);}
+#lb-prev{left:20px;}#lb-next{right:20px;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .nav,.nav.scrolled{padding:20px 24px;}
+  .nav__links{display:none;}
+  .nav__burger{display:flex;}
+  .hero{grid-template-columns:1fr;}
+  .hero__right{display:none;}
+  .hero__left{padding:120px 24px 80px;min-height:100vh;}
+  .sec{padding:80px 24px;}
+  .about__g{grid-template-columns:1fr;gap:48px;}
+  .about__iw{order:-1;}
+  .svc-g{grid-template-columns:1fr;}
+  .cs-head,.cs-head~*{padding-left:24px;padding-right:24px;}
+  .cw,.pc-w{padding:0 24px;}
+  .cs-head,.pc-w~.pdots{padding:0 24px;}
+  .gal-g{grid-template-columns:1fr 1fr;grid-auto-rows:180px;}
+  .gi{grid-column:span 1 !important;grid-row:span 1 !important;}
+  .testi-g{grid-template-columns:1fr;}
+  .ct-sec{grid-template-columns:1fr;}
+  .ct-map iframe{height:300px;}
+  .ct-info{padding:48px 24px;}
+  .ft{padding:60px 24px 32px;}
+  .ft-top{grid-template-columns:1fr 1fr;gap:32px;}
+  .ft-bot{flex-direction:column;gap:12px;text-align:center;}
+  .sec-dd .svc-g{padding:0;}
+}
+@media(max-width:600px){
+  .hero__btns{flex-direction:column;}
+  .about__stats{flex-wrap:wrap;gap:20px;}
+  .sc{flex:0 0 220px;min-width:220px;}
+  .pc{flex:0 0 260px;min-width:260px;}
+  .ft-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__logo">
+    <div class="nav__logo-top">SENTA</div>
+    <span class="nav__logo-sub">Brothers Glass · Nairobi</span>
+  </div>
+  <ul class="nav__links">
+    <li><a href="senta-shop.html">Shop</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#shapes">Shapes</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="senta-interior.html">Projects</a></li>
+    <li><a href="#contact" class="ncta">Get a Quote</a></li>
+  </ul>
+  <button class="nav__burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <a href="senta-shop.html" onclick="closeMM()">Shop</a>
+  <a href="#services" onclick="closeMM()">Services</a>
+  <a href="#shapes" onclick="closeMM()">Shapes</a>
+  <a href="#pricing" onclick="closeMM()">Pricing</a>
+  <a href="senta-interior.html" onclick="closeMM()">Projects</a>
+  <a href="#contact" onclick="closeMM()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__left">
+    <div class="hero__eyebrow r">Premium Mirrors · Nairobi Kenya</div>
+    <h1 class="hero__h1 r">Premium<br/><em>Mirrors.</em><br/>Timeless<br/><em>Spaces.</em></h1>
+    <p class="hero__sub r">Senta Brothers crafts luxury mirrors in every shape — arch, oval, wavy, circle and beyond. Custom made. Professionally installed.</p>
+    <div class="hero__btns r">
+      <a href="senta-shop.html" class="btn bg">🛍️ Mirror Shop</a>
+      <a href="senta-interior.html" class="btn bgh">🏠 Our Projects</a>
+      <a href="#services" class="btn bgh">Services</a>
+    </div>
+  </div>
+  <div class="hero__right">
+    <img src="S01.jpg" alt="Senta Brothers Premium Mirror" onerror="this.style.opacity='0'"/>
+  </div>
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq__t">
+    <span>Wall Mirrors</span><span>✦</span><span>LED Mirrors</span><span>✦</span><span>Wavy Frames</span><span>✦</span><span>Custom Shapes</span><span>✦</span><span>Glass Solutions</span><span>✦</span><span>Window Pins</span><span>✦</span><span>Interior Design</span><span>✦</span><span>Painting & Finishing</span><span>✦</span><span>Professional Installation</span><span>✦</span><span>Kasarani Hunters</span><span>✦</span>
+    <span>Wall Mirrors</span><span>✦</span><span>LED Mirrors</span><span>✦</span><span>Wavy Frames</span><span>✦</span><span>Custom Shapes</span><span>✦</span><span>Glass Solutions</span><span>✦</span><span>Window Pins</span><span>✦</span><span>Interior Design</span><span>✦</span><span>Painting & Finishing</span><span>✦</span><span>Professional Installation</span><span>✦</span><span>Kasarani Hunters</span><span>✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec sec-d" id="about">
+  <div class="about__g">
+    <div class="about__iw r2">
+      <div class="about__i">
+        <img src="S13.jpg" alt="Senta Brothers" onerror="this.style.opacity='0'"/>
+      </div>
+      <div class="about__badge">
+        <span class="about__badge-n" data-target="5" data-suffix="+">0+</span>
+        <span class="about__badge-l">Years</span>
+      </div>
+    </div>
+    <div class="r">
+      <div class="sl">Our Story</div>
+      <h2 class="sh" style="margin-bottom:28px;">Crafting Reflections<br/>That <em>Inspire</em></h2>
+      <p style="font-size:14px;line-height:2;color:rgba(250,250,246,0.55);margin-bottom:16px;">At Senta Brothers, we specialize in high-quality mirrors and modern interior solutions that blend functionality with beauty. From bespoke designs to professional installations, we bring your vision to life.</p>
+      <p style="font-size:14px;line-height:2;color:rgba(250,250,246,0.55);margin-bottom:0;">Located at Kasarani Hunters, next to Co-operative Bank of Kenya, we serve clients across Nairobi with custom mirrors in any shape and size.</p>
+      <div class="about__stats">
+        <div><span class="as-n" data-target="100" data-suffix="+">0+</span><span class="as-l">Projects Done</span></div>
+        <div><span class="as-n" data-target="50" data-suffix="+">0+</span><span class="as-l">Happy Clients</span></div>
+        <div><span class="as-n" data-target="24" data-suffix="/7">0/7</span><span class="as-l">Open Hours</span></div>
+      </div>
+      <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a free quote." class="btn bg" target="_blank">Get a Free Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec sec-dd" id="services">
+  <div class="r"><div class="sl">What We Do</div><h2 class="sh">Elegant Solutions For Every <em>Space</em></h2></div>
+  <div class="svc-g">
+    <div class="svc r"><div class="svc__n">01</div><span class="svc__ic">🪞</span><div class="svc__name">Custom Mirrors</div><p class="svc__desc">Wall mirrors, LED mirrors, and bespoke custom designs in any shape — arch, oval, wavy, circle and more.</p><a href="senta-shop.html" class="svc__lnk">View Shop →</a></div>
+    <div class="svc r"><div class="svc__n">02</div><span class="svc__ic">🔷</span><div class="svc__name">Glass Solutions</div><p class="svc__desc">Quality glass for every interior need. Window pins, glass partitions and professional glass installation.</p><a href="#contact" class="svc__lnk">Enquire →</a></div>
+    <div class="svc r"><div class="svc__n">03</div><span class="svc__ic">🏠</span><div class="svc__name">Interior Design & Painting</div><p class="svc__desc">Full interior design, painting and all finishing services for residential and commercial buildings.</p><a href="senta-interior.html" class="svc__lnk">View Projects →</a></div>
+    <div class="svc r"><div class="svc__n">04</div><span class="svc__ic">🪟</span><div class="svc__name">Window Pins</div><p class="svc__desc">Expert window pin installation for homes and buildings. Durable, secure and professionally fitted.</p><a href="#contact" class="svc__lnk">Enquire →</a></div>
+    <div class="svc r"><div class="svc__n">05</div><span class="svc__ic">💡</span><div class="svc__name">LED Mirrors</div><p class="svc__desc">Modern backlit LED mirrors with perfect glow. Ideal for bathrooms, dressing rooms and salons.</p><a href="senta-shop.html" class="svc__lnk">View Shop →</a></div>
+    <div class="svc r"><div class="svc__n">06</div><span class="svc__ic">🔧</span><div class="svc__name">Professional Installation</div><p class="svc__desc">Expert installation for all mirror types. We come to you — Nairobi and surrounding areas.</p><a href="#contact" class="svc__lnk">Book Now →</a></div>
+  </div>
+</section>
+
+<!-- SHAPES CAROUSEL -->
+<section class="cs-sec" id="shapes">
+  <div class="cs-head r">
+    <div><div class="sl">Mirror Shapes</div><h2 class="sh">Every <em>Shape</em> Possible</h2></div>
+    <div class="cs-btns"><button class="cbtn" onclick="slide('s',-1)">‹</button><button class="cbtn" onclick="slide('s',1)">›</button></div>
+  </div>
+  <div class="cw">
+    <div class="ct" id="s-track">
+      <div class="sc"><div class="sc__f f-arch"><img src="S01.jpg" alt="Arch" onerror="this.style.opacity='0'"/></div><div class="sc__name">Arch</div><div class="sc__price">From KSh 6,500</div><a href="https://wa.me/254722960355?text=Hi! I want an Arch mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-oval"><img src="S02.jpg" alt="Oval" onerror="this.style.opacity='0'"/></div><div class="sc__name">Oval</div><div class="sc__price">From KSh 6,500</div><a href="https://wa.me/254722960355?text=Hi! I want an Oval mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-rect"><img src="S03.jpg" alt="Rectangular" onerror="this.style.opacity='0'"/></div><div class="sc__name">Rectangular</div><div class="sc__price">From KSh 6,500</div><a href="https://wa.me/254722960355?text=Hi! I want a Rectangular mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-wavy"><img src="S04.jpg" alt="Wavy" onerror="this.style.opacity='0'"/></div><div class="sc__name">Wavy Frame</div><div class="sc__price">From KSh 10,500</div><a href="https://wa.me/254722960355?text=Hi! I want a Wavy Frame mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-circle"><img src="S05.jpg" alt="Circle" onerror="this.style.opacity='0'"/></div><div class="sc__name">Circle</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want a Circle mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-tear"><img src="S06.jpg" alt="Teardrop" onerror="this.style.opacity='0'"/></div><div class="sc__name">Teardrop</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want a Teardrop mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-irr"><img src="S07.jpg" alt="Irregular" onerror="this.style.opacity='0'"/></div><div class="sc__name">Irregular</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want an Irregular mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-pent"><img src="S08.jpg" alt="Pentagon" onerror="this.style.opacity='0'"/></div><div class="sc__name">Pentagon</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want a Pentagon mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-star"><img src="S09.jpg" alt="Star" onerror="this.style.opacity='0'"/></div><div class="sc__name">Star</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want a Star mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-diam"><img src="S10.jpg" alt="Diamond" onerror="this.style.opacity='0'"/></div><div class="sc__name">Diamond</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want a Diamond mirror." class="sc__cta" target="_blank">Order →</a></div>
+      <div class="sc"><div class="sc__f f-hex"><img src="S11.jpg" alt="Hexagon" onerror="this.style.opacity='0'"/></div><div class="sc__name">Hexagon</div><div class="sc__price">Custom Quote</div><a href="https://wa.me/254722960355?text=Hi! I want a Hexagon mirror." class="sc__cta" target="_blank">Order →</a></div>
+    </div>
+  </div>
+  <div class="cdots" id="s-dots"></div>
+</section>
+
+<!-- PRICING CAROUSEL -->
+<section class="cs-sec d" id="pricing">
+  <div class="cs-head r">
+    <div><div class="sl">Ready Sizes & Pricing</div><h2 class="sh">Transparent <em>Pricing</em></h2></div>
+    <div class="cs-btns"><button class="cbtn" onclick="slide('p',-1)">‹</button><button class="cbtn" onclick="slide('p',1)">›</button></div>
+  </div>
+  <div class="pc-w">
+    <div class="pc-t" id="p-track">
+      <div class="pc"><span class="pc-type">Standard Mirror</span><div class="pc-sz">6ft × 2ft</div><div class="pc-pr">KSh 6,500</div><span class="pc-sub">From</span><ul class="pc-list"><li>Arch, Oval or Rectangular</li><li>Custom shape available</li><li>High quality glass</li><li>Installation available</li></ul><a href="https://wa.me/254722960355?text=Hi! I want a 6ft x 2ft mirror (KSh 6,500)." class="btn bgg" target="_blank" style="width:100%;justify-content:center;">Order Now</a></div>
+      <div class="pc pc-feat"><div class="pc-badge">Popular</div><span class="pc-type">Standard Mirror</span><div class="pc-sz">6ft × 3ft</div><div class="pc-pr">KSh 7,900</div><span class="pc-sub">Fixed Price</span><ul class="pc-list"><li>Arch, Oval or Rectangular</li><li>Custom shape available</li><li>High quality glass</li><li>Installation available</li></ul><a href="https://wa.me/254722960355?text=Hi! I want a 6ft x 3ft mirror (KSh 7,900)." class="btn bg" target="_blank" style="width:100%;justify-content:center;">Order Now</a></div>
+      <div class="pc"><span class="pc-type">Standard Mirror</span><div class="pc-sz">6ft × 4ft</div><div class="pc-pr">KSh 10,000</div><span class="pc-sub">Fixed Price</span><ul class="pc-list"><li>Arch, Oval or Rectangular</li><li>Custom shape available</li><li>High quality glass</li><li>Installation available</li></ul><a href="https://wa.me/254722960355?text=Hi! I want a 6ft x 4ft mirror (KSh 10,000)." class="btn bgg" target="_blank" style="width:100%;justify-content:center;">Order Now</a></div>
+      <div class="pc"><span class="pc-type">Wavy Frame</span><div class="pc-sz">2ft × 6ft</div><div class="pc-pr">KSh 10,500</div><span class="pc-sub">Fixed Price</span><ul class="pc-list"><li>Wavy decorative frame</li><li>Black or white frame</li><li>High quality glass</li><li>Installation available</li></ul><a href="https://wa.me/254722960355?text=Hi! I want a 2x6ft Wavy Frame mirror (KSh 10,500)." class="btn bgg" target="_blank" style="width:100%;justify-content:center;">Order Now</a></div>
+      <div class="pc pc-feat"><div class="pc-badge">Popular</div><span class="pc-type">Wavy Frame</span><div class="pc-sz">2.5ft × 6ft</div><div class="pc-pr">KSh 12,500</div><span class="pc-sub">Fixed Price</span><ul class="pc-list"><li>Wavy decorative frame</li><li>Black or white frame</li><li>High quality glass</li><li>Installation available</li></ul><a href="https://wa.me/254722960355?text=Hi! I want a 2.5x6ft Wavy Frame mirror (KSh 12,500)." class="btn bg" target="_blank" style="width:100%;justify-content:center;">Order Now</a></div>
+      <div class="pc"><span class="pc-type">Wavy Frame</span><div class="pc-sz">3ft × 6ft</div><div class="pc-pr">KSh 15,000</div><span class="pc-sub">Fixed Price</span><ul class="pc-list"><li>Wavy decorative frame</li><li>Black or white frame</li><li>High quality glass</li><li>Installation available</li></ul><a href="https://wa.me/254722960355?text=Hi! I want a 3x6ft Wavy Frame mirror (KSh 15,000)." class="btn bgg" target="_blank" style="width:100%;justify-content:center;">Order Now</a></div>
+      <div class="pc"><span class="pc-type">Custom Mirror</span><div class="pc-sz">Any Size</div><div class="pc-pr" style="font-size:28px;">Get Quote</div><span class="pc-sub">WhatsApp Us</span><ul class="pc-list"><li>Any shape or size</li><li>Circle, teardrop, star</li><li>Pentagon or hexagon</li><li>Your own design</li></ul><a href="https://wa.me/254722960355?text=Hi! I need a custom mirror." class="btn bgg" target="_blank" style="width:100%;justify-content:center;">Enquire Now</a></div>
+    </div>
+  </div>
+  <div class="pdots" id="p-dots"></div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+  <div class="r"><div class="sl">Our Work</div><h2 class="sh">Crafted to <em>Impress</em></h2></div>
+  <div class="gal-g">
+    <div class="gi r"><img src="S14.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+    <div class="gi r"><img src="S15.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+    <div class="gi r"><img src="S16.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+    <div class="gi r"><img src="S17.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+    <div class="gi r"><img src="S18.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+    <div class="gi r"><img src="S19.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+    <div class="gi r"><img src="S20.jpg" alt="" onerror="this.style.display='none'"/><div class="gi__o"><span>View</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:48px;"><a href="senta-shop.html" class="btn bgg">View Full Collection →</a></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec sec-d">
+  <div class="r"><div class="sl">What Clients Say</div><h2 class="sh">Trusted by <em>Hundreds</em></h2></div>
+  <div class="testi-g">
+    <div class="tc r"><div class="tc-q">"</div><p class="tc-t">Senta Brothers did an amazing job on our bathroom mirror. The arch shape was exactly what we wanted. Professional and fast delivery!</p><div class="tc-auth"><div class="tc-av">A</div><div><div class="tc-name">Amina K.</div><div class="tc-role">Nairobi ★★★★★</div></div></div></div>
+    <div class="tc tc-feat r"><div class="tc-badge">Top Review</div><div class="tc-q">"</div><p class="tc-t">The wavy frame mirror they made for my salon is absolutely stunning. My clients always ask about it. Worth every shilling!</p><div class="tc-auth"><div class="tc-av">G</div><div><div class="tc-name">Grace M.</div><div class="tc-role">Salon Owner ★★★★★</div></div></div></div>
+    <div class="tc r"><div class="tc-q">"</div><p class="tc-t">Hired them for full interior painting of our apartment block. On time, clean work and very reasonable pricing. Highly recommended!</p><div class="tc-auth"><div class="tc-av">J</div><div><div class="tc-name">James O.</div><div class="tc-role">Property Developer ★★★★★</div></div></div></div>
+  </div>
+</section>
+
+<!-- MAP + CONTACT -->
+<div class="ct-sec" id="contact">
+  <div class="ct-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6!2d36.889!3d-1.231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zS2FzYXJhbmk!5e0!3m2!1sen!2ske!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="ct-info r">
+    <div class="sl" style="margin-bottom:32px;">Get In Touch</div>
+    <h2 class="sh" style="margin-bottom:40px;">Let's Build Something<br/><em>Beautiful</em></h2>
+    <div class="ci"><div class="ci-ic">📍</div><div><span class="ci-lb">Location</span><div class="ci-v">Kasarani Hunters, next to<br/>Co-operative Bank of Kenya, Nairobi</div></div></div>
+    <div class="ci"><div class="ci-ic">📞</div><div><span class="ci-lb">Phone / WhatsApp</span><div class="ci-v"><a href="tel:+254722960355">+254 722 960 355</a></div></div></div>
+    <div class="ci"><div class="ci-ic">🕐</div><div><span class="ci-lb">Hours</span><div class="ci-v">Open 24 Hours · 7 Days a Week</div></div></div>
+    <div class="ci"><div class="ci-ic">🪞</div><div><span class="ci-lb">Speciality</span><div class="ci-v">Arch · Oval · Wavy · Circle · Custom<br/>Window Pins · Interior Design</div></div></div>
+    <a href="https://wa.me/254722960355?text=Hi Senta Brothers! I'd like a quote." class="btn bg" target="_blank" style="margin-top:32px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0f00-3.48-8.413Z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-top">
+    <div>
+      <div class="ft-ln">SENTA</div>
+      <span class="ft-ls">Brothers Glass · Nairobi</span>
+      <p class="ft-desc">Luxury mirrors & modern interior solutions designed to reflect your style and elevate every space.</p>
+      <div class="ft-soc">
+        <a href="#" class="fsoc">f</a>
+        <a href="#" class="fsoc">ig</a>
+        <a href="https://wa.me/254722960355" class="fsoc" target="_blank">wa</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="senta-shop.html">Mirror Shop</a></li>
+        <li><a href="senta-interior.html">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Wall Mirrors</a></li>
+        <li><a href="#">LED Mirrors</a></li>
+        <li><a href="#">Custom Shapes</a></li>
+        <li><a href="#">Wavy Frames</a></li>
+        <li><a href="#">Glass Solutions</a></li>
+        <li><a href="#">Window Pins</a></li>
+        <li><a href="senta-interior.html">Interior Design</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+254722960355">+254 722 960 355</a></li>
+        <li><a href="https://wa.me/254722960355">WhatsApp Us</a></li>
+        <li><a href="#">Kasarani Hunters</a></li>
+        <li><a href="#">Co-op Bank, Nairobi</a></li>
+        <li><a href="#">Open 24/7</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 Senta Brothers Glass. All Rights Reserved.</p>
+    <p>Designed with ♥ in Kenya</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/254722960355?text=Hi Senta Brothers!" class="wa-float" target="_blank">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-x" id="lb-x">✕</button>
+  <button class="lb-nav" id="lb-prev">‹</button>
+  <img id="lb-img" src="" alt=""/>
+  <button class="lb-nav" id="lb-next">›</button>
+</div>
+
+<script>
+// NAV
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('mmenu').classList.toggle('open'));
+function closeMM(){document.getElementById('mmenu').classList.remove('open');}
+
+// REVEAL
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach((el,i)=>{if(el.isIntersecting)setTimeout(()=>el.target.classList.add('v'),i*70);});
+},{threshold:0.06});
+document.querySelectorAll('.r,.r2').forEach(el=>ro.observe(el));
+
+// CAROUSEL
+const C={};
+function initC(id,iw,gap,dotsClass){
+  const track=document.getElementById(id+'-track');
+  const dotsEl=document.getElementById(id+'-dots');
+  if(!track)return;
+  const n=track.children.length;
+  let cur=0;
+  const vis=Math.max(1,Math.floor((window.innerWidth-112)/(iw+gap)));
+  const max=Math.max(0,n-vis);
+  if(dotsEl){
+    dotsEl.innerHTML='';
+    for(let i=0;i<=max;i++){
+      const d=document.createElement('button');
+      d.className=dotsClass+(i===0?' a':'');
+      d.onclick=()=>go(i);
+      dotsEl.appendChild(d);
+    }
+  }
+  function go(i){
+    cur=Math.max(0,Math.min(i,max));
+    track.style.transform=`translateX(-${cur*(iw+gap)}px)`;
+    if(dotsEl)[...dotsEl.children].forEach((d,j)=>d.className=dotsClass+(j===cur?' a':''));
+  }
+  C[id]={go,get cur(){return cur;},max};
+  let sx=0;
+  track.parentElement.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  track.parentElement.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>50)go(cur+(d>0?1:-1));});
+}
+function slide(id,dir){if(C[id])C[id].go(C[id].cur+dir);}
+function autoC(id,ms){setInterval(()=>{if(!C[id])return;const c=C[id];c.go(c.cur>=c.max?0:c.cur+1);},ms);}
+window.addEventListener('load',()=>{
+  initC('s',280,24,'cdot');
+  initC('p',300,20,'pdot');
+  autoC('s',3500);
+  autoC('p',5000);
+});
+
+// COUNTERS
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target,t=+el.dataset.target,sf=el.dataset.suffix||'';
+      let v=0;const step=t/80;
+      const tm=setInterval(()=>{v=Math.min(v+step,t);el.textContent=Math.floor(v)+sf;if(v>=t)clearInterval(tm);},20);
+      co.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
+
+// GALLERY LIGHTBOX
+const imgs=[...document.querySelectorAll('.gi img')];
+let ci=0;
+document.querySelectorAll('.gi').forEach((g,i)=>g.addEventListener('click',()=>{
+  ci=i;document.getElementById('lb-img').src=imgs[i]?.src||'';
+  document.getElementById('lb').classList.add('open');
+}));
+document.getElementById('lb-x').addEventListener('click',()=>document.getElementById('lb').classList.remove('open'));
+document.getElementById('lb').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('open');});
+document.getElementById('lb-prev').addEventListener('click',()=>{ci=(ci-1+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[ci].src;});
+document.getElementById('lb-next').addEventListener('click',()=>{ci=(ci+1)%imgs.length;document.getElementById('lb-img').src=imgs[ci].src;});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('open'))return;
+  if(e.key==='ArrowRight')document.getElementById('lb-next').click();
+  if(e.key==='ArrowLeft')document.getElementById('lb-prev').click();
+  if(e.key==='Escape')document.getElementById('lb').classList.remove('open');
+});
+</script>
+</body>
+</html>
